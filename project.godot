@@ -10,9 +10,11 @@ config_version=5
 
 [application]
 
-config/name="Template"
-config/features=PackedStringArray("4.3", "Mobile")
-config/icon="res://images/icon.svg"
+config/name="PSO VR"
+run/main_scene="uid://gb1oo8emlwvd"
+config/features=PackedStringArray("4.4", "Mobile")
+config/icon="uid://d4gt82rg7wjm1"
+config/windows_native_icon="res://images/logo.ico"
 
 [autoload]
 
@@ -20,12 +22,24 @@ Global="*res://singletons/global.gd"
 Enums="*res://singletons/enums.gd"
 Signals="*res://singletons/signals.gd"
 Settings="*res://singletons/settings.gd"
+XRToolsUserSettings="*res://addons/godot-xr-tools/user_settings/user_settings.gd"
+XRToolsRumbleManager="*res://addons/godot-xr-tools/rumble/rumble_manager.gd"
 
 [editor]
 
 version_control/plugin_name="GitPlugin"
 version_control/autoload_on_startup=true
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godot-xr-tools/plugin.cfg")
+
 [rendering]
 
-renderer/rendering_method="mobile"
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+
+[xr]
+
+openxr/enabled=true
+shaders/enabled=true
