@@ -1,0 +1,51 @@
+[gd_scene load_steps=12 format=3 uid="uid://mcboobmkmfao"]
+
+[ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_dvwak"]
+[ext_resource type="PackedScene" uid="uid://bjksc14woeo8r" path="res://meshes/weapons/Handgun.glb" id="2_qg7ok"]
+[ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="3_740y4"]
+[ext_resource type="Animation" uid="uid://ddbo6ioa282en" path="res://addons/godot-xr-tools/hands/animations/left/Pistol.res" id="4_5c16m"]
+[ext_resource type="Script" uid="uid://c6vwhu36sr4fa" path="res://addons/godot-xr-tools/hands/poses/hand_pose_settings.gd" id="5_00kb8"]
+[ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="6_wsts7"]
+[ext_resource type="Animation" uid="uid://csp3fdknowmi5" path="res://addons/godot-xr-tools/hands/animations/right/Pistol.res" id="7_htpuk"]
+[ext_resource type="Script" uid="uid://bbivjho4lhigf" path="res://scenes/objects/handgun_shoot.gd" id="8_5c16m"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4ufix"]
+size = Vector3(0.1, 0.270132, 0.227232)
+
+[sub_resource type="Resource" id="Resource_b5w62"]
+script = ExtResource("5_00kb8")
+closed_pose = ExtResource("4_5c16m")
+metadata/_custom_type_script = "uid://c6vwhu36sr4fa"
+
+[sub_resource type="Resource" id="Resource_jl73h"]
+script = ExtResource("5_00kb8")
+closed_pose = ExtResource("7_htpuk")
+metadata/_custom_type_script = "uid://c6vwhu36sr4fa"
+
+[node name="Handgun" instance=ExtResource("1_dvwak")]
+press_to_hold = false
+
+[node name="AuxScene" parent="." index="0" instance=ExtResource("2_qg7ok")]
+transform = Transform3D(-0.075, 6.55671e-09, -1.13247e-08, -1.0144e-08, 0.0118722, 0.0740544, 8.26669e-09, 0.0740544, -0.0118722, 0, 0, 0)
+
+[node name="CollisionShape3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 0.160587, -0.987022, 0, 0.987022, 0.160587, 0, 0.0435875, -0.0776641)
+shape = SubResource("BoxShape3D_4ufix")
+
+[node name="GrabPointHandLeft" parent="." index="2" instance=ExtResource("3_740y4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0115836, 0.0536243, -0.0473059)
+hand_pose = SubResource("Resource_b5w62")
+
+[node name="GrabPointHandRight" parent="." index="3" instance=ExtResource("6_wsts7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.014903, 0.0558134, -0.0448887)
+hand_pose = SubResource("Resource_jl73h")
+
+[node name="ShootDir" type="Marker3D" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 0.984808, 0.173648, 0, -0.173648, 0.984808, 0, 0.0603366, -0.216842)
+script = ExtResource("8_5c16m")
+
+[node name="ShootTimer" type="Timer" parent="." index="5"]
+wait_time = 0.25
+
+[connection signal="action_pressed" from="." to="ShootDir" method="_on_handgun_action_pressed"]
+[connection signal="timeout" from="ShootTimer" to="ShootDir" method="_on_shoot_timer_timeout"]
