@@ -21,7 +21,7 @@ func _process(delta: float) -> void:
   # end if
 # end _process
 
-func _on_body_entered(body: Node3D) -> void:
+func _on_body_entered(_body: Node3D) -> void:
   queue_free();
   pass
 

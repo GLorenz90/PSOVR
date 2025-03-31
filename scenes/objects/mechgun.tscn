@@ -1,0 +1,58 @@
+[gd_scene load_steps=12 format=3 uid="uid://dxkctaxp7kenu"]
+
+[ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_y62gg"]
+[ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="2_3hces"]
+[ext_resource type="Animation" uid="uid://ddbo6ioa282en" path="res://addons/godot-xr-tools/hands/animations/left/Pistol.res" id="3_87bdm"]
+[ext_resource type="Script" uid="uid://c6vwhu36sr4fa" path="res://addons/godot-xr-tools/hands/poses/hand_pose_settings.gd" id="4_2s3gk"]
+[ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="5_igoga"]
+[ext_resource type="Animation" uid="uid://csp3fdknowmi5" path="res://addons/godot-xr-tools/hands/animations/right/Pistol.res" id="6_7qys6"]
+[ext_resource type="Script" uid="uid://dbu5qg6hhdpt2" path="res://scenes/objects/mechgun_shoot.gd" id="7_y62gg"]
+[ext_resource type="PackedScene" uid="uid://byb0vg0jig0mm" path="res://meshes/weapons/Red Mechguns.glb" id="8_3hces"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4ufix"]
+size = Vector3(0.1, 0.209012, 0.256682)
+
+[sub_resource type="Resource" id="Resource_b5w62"]
+script = ExtResource("4_2s3gk")
+closed_pose = ExtResource("3_87bdm")
+metadata/_custom_type_script = "uid://c6vwhu36sr4fa"
+
+[sub_resource type="Resource" id="Resource_jl73h"]
+script = ExtResource("4_2s3gk")
+closed_pose = ExtResource("6_7qys6")
+metadata/_custom_type_script = "uid://c6vwhu36sr4fa"
+
+[node name="Mechgun" instance=ExtResource("1_y62gg")]
+press_to_hold = false
+
+[node name="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0450664, -0.0629389)
+shape = SubResource("BoxShape3D_4ufix")
+
+[node name="GrabPointHandLeft" parent="." index="1" instance=ExtResource("2_3hces")]
+transform = Transform3D(1, 0, 0, 0, 0.97503, -0.222076, 0, 0.222076, 0.97503, 0.00842533, 0.0744701, -0.0313689)
+visible = true
+hand_pose = SubResource("Resource_b5w62")
+
+[node name="GrabPointHandRight" parent="." index="2" instance=ExtResource("5_igoga")]
+transform = Transform3D(1, 0, 0, 0, 0.97503, -0.222076, 0, 0.222076, 0.97503, -0.0206011, 0.0761008, -0.0304031)
+visible = true
+hand_pose = SubResource("Resource_jl73h")
+
+[node name="Mechgun" type="Node3D" parent="." index="3"]
+script = ExtResource("7_y62gg")
+
+[node name="AuxScene" parent="Mechgun" index="0" instance=ExtResource("8_3hces")]
+transform = Transform3D(-0.075, 6.55671e-09, 0, 2.86603e-16, 3.27835e-09, 0.075, 6.55671e-09, 0.075, -3.27835e-09, 0.00126515, 0, 0)
+
+[node name="ShootDir" type="Marker3D" parent="Mechgun" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00108383, 0.106943, -0.377075)
+
+[node name="ShootTimer" type="Timer" parent="Mechgun" index="2"]
+wait_time = 0.1
+
+[connection signal="action_pressed" from="." to="Mechgun" method="_on_mechgun_action_pressed"]
+[connection signal="action_released" from="." to="Mechgun" method="_on_mechgun_action_released"]
+[connection signal="dropped" from="." to="Mechgun" method="_on_mechgun_dropped"]
+[connection signal="released" from="." to="Mechgun" method="_on_mechgun_released"]
+[connection signal="timeout" from="Mechgun/ShootTimer" to="Mechgun" method="_on_shoot_timer_timeout"]

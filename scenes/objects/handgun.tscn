@@ -10,7 +10,7 @@
 [ext_resource type="Script" uid="uid://bbivjho4lhigf" path="res://scenes/objects/handgun_shoot.gd" id="8_5c16m"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4ufix"]
-size = Vector3(0.1, 0.270132, 0.227232)
+size = Vector3(0.1, 0.209012, 0.256682)
 
 [sub_resource type="Resource" id="Resource_b5w62"]
 script = ExtResource("5_00kb8")
@@ -25,27 +25,25 @@ metadata/_custom_type_script = "uid://c6vwhu36sr4fa"
 [node name="Handgun" instance=ExtResource("1_dvwak")]
 press_to_hold = false
 
-[node name="AuxScene" parent="." index="0" instance=ExtResource("2_qg7ok")]
-transform = Transform3D(-0.075, 6.55671e-09, -1.13247e-08, -1.0144e-08, 0.0118722, 0.0740544, 8.26669e-09, 0.0740544, -0.0118722, 0, 0, 0)
-
-[node name="CollisionShape3D" parent="." index="1"]
-transform = Transform3D(1, 0, 0, 0, 0.160587, -0.987022, 0, 0.987022, 0.160587, 0, 0.0435875, -0.0776641)
+[node name="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0450664, -0.0629389)
 shape = SubResource("BoxShape3D_4ufix")
 
-[node name="GrabPointHandLeft" parent="." index="2" instance=ExtResource("3_740y4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0115836, 0.0536243, -0.0473059)
+[node name="GrabPointHandLeft" parent="." index="1" instance=ExtResource("3_740y4")]
+transform = Transform3D(1, 0, 0, 0, 0.984808, -0.173648, 0, 0.173648, 0.984808, 0.0115836, 0.0744472, -0.0474959)
 hand_pose = SubResource("Resource_b5w62")
 
-[node name="GrabPointHandRight" parent="." index="3" instance=ExtResource("6_wsts7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.014903, 0.0558134, -0.0448887)
+[node name="GrabPointHandRight" parent="." index="2" instance=ExtResource("6_wsts7")]
+transform = Transform3D(1, 0, 0, 0, 0.984808, -0.173648, 0, 0.173648, 0.984808, -0.014903, 0.0761237, -0.0446987)
 hand_pose = SubResource("Resource_jl73h")
 
-[node name="ShootDir" type="Marker3D" parent="." index="4"]
-transform = Transform3D(1, 0, 0, 0, 0.984808, 0.173648, 0, -0.173648, 0.984808, 0, 0.0603366, -0.216842)
+[node name="Handgun" type="Node3D" parent="." index="3"]
 script = ExtResource("8_5c16m")
 
-[node name="ShootTimer" type="Timer" parent="." index="5"]
-wait_time = 0.25
+[node name="AuxScene" parent="Handgun" index="0" instance=ExtResource("2_qg7ok")]
+transform = Transform3D(-0.075, -6.55671e-09, -2.86603e-16, 0, -3.27835e-09, 0.075, -6.55671e-09, 0.075, 3.27835e-09, 0, 0, 0)
 
-[connection signal="action_pressed" from="." to="ShootDir" method="_on_handgun_action_pressed"]
-[connection signal="timeout" from="ShootTimer" to="ShootDir" method="_on_shoot_timer_timeout"]
+[node name="ShootDir" type="Marker3D" parent="Handgun" index="1"]
+transform = Transform3D(1, 1.537e-07, -1.72474e-07, -1.50996e-07, 0.999879, 0.0155674, 1.74846e-07, -0.0155674, 0.999879, 4.99446e-08, 0.0939011, -0.204557)
+
+[connection signal="action_pressed" from="." to="Handgun" method="_on_handgun_action_pressed"]
