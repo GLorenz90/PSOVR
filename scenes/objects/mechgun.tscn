@@ -14,11 +14,13 @@ size = Vector3(0.1, 0.209012, 0.256682)
 
 [sub_resource type="Resource" id="Resource_b5w62"]
 script = ExtResource("4_2s3gk")
+open_pose = ExtResource("3_87bdm")
 closed_pose = ExtResource("3_87bdm")
 metadata/_custom_type_script = "uid://c6vwhu36sr4fa"
 
 [sub_resource type="Resource" id="Resource_jl73h"]
 script = ExtResource("4_2s3gk")
+open_pose = ExtResource("6_7qys6")
 closed_pose = ExtResource("6_7qys6")
 metadata/_custom_type_script = "uid://c6vwhu36sr4fa"
 
@@ -31,12 +33,10 @@ shape = SubResource("BoxShape3D_4ufix")
 
 [node name="GrabPointHandLeft" parent="." index="1" instance=ExtResource("2_3hces")]
 transform = Transform3D(1, 0, 0, 0, 0.97503, -0.222076, 0, 0.222076, 0.97503, 0.00842533, 0.0744701, -0.0313689)
-visible = true
 hand_pose = SubResource("Resource_b5w62")
 
 [node name="GrabPointHandRight" parent="." index="2" instance=ExtResource("5_igoga")]
 transform = Transform3D(1, 0, 0, 0, 0.97503, -0.222076, 0, 0.222076, 0.97503, -0.0206011, 0.0761008, -0.0304031)
-visible = true
 hand_pose = SubResource("Resource_jl73h")
 
 [node name="Mechgun" type="Node3D" parent="." index="3"]

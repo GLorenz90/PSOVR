@@ -14,11 +14,13 @@ size = Vector3(0.1, 0.209012, 0.256682)
 
 [sub_resource type="Resource" id="Resource_b5w62"]
 script = ExtResource("5_00kb8")
+open_pose = ExtResource("4_5c16m")
 closed_pose = ExtResource("4_5c16m")
 metadata/_custom_type_script = "uid://c6vwhu36sr4fa"
 
 [sub_resource type="Resource" id="Resource_jl73h"]
 script = ExtResource("5_00kb8")
+open_pose = ExtResource("7_htpuk")
 closed_pose = ExtResource("7_htpuk")
 metadata/_custom_type_script = "uid://c6vwhu36sr4fa"
 

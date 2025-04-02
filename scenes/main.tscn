@@ -79,34 +79,34 @@ transform = Transform3D(-2.18557e-07, 0, -5, 0, 5, 0, 5, 0, -2.18557e-07, 0, 0, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.8, 0)
 shape = SubResource("BoxShape3D_o6xl0")
 
-[node name="XROrigin3D" parent="." instance=ExtResource("4_jyhfs")]
+[node name="Table" parent="Scene" instance=ExtResource("5_tbgi4")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 10.0419, 6, -5.09688)
 
-[node name="Table" parent="." instance=ExtResource("5_tbgi4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.00419, 0.6, -0.509688)
-
-[node name="Handgun" parent="Table" instance=ExtResource("6_tefeu")]
+[node name="Handgun" parent="Scene/Table" instance=ExtResource("6_tefeu")]
 transform = Transform3D(4.37114e-08, 8.74228e-08, -1, 1, 4.37114e-08, 4.37114e-08, 4.37114e-08, -1, -8.74228e-08, -0.109282, 0.541456, 0.189686)
 
-[node name="Handgun2" parent="Table" instance=ExtResource("6_tefeu")]
+[node name="Handgun2" parent="Scene/Table" instance=ExtResource("6_tefeu")]
 transform = Transform3D(4.37114e-08, 8.74228e-08, -1, -1, -1.31134e-07, -4.37114e-08, -1.31134e-07, 1, 8.74228e-08, -0.109282, 0.541456, -0.210314)
 
-[node name="Table2" parent="." instance=ExtResource("5_tbgi4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.00419, 0.6, 0.590312)
+[node name="Table2" parent="Scene" instance=ExtResource("5_tbgi4")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 10.0419, 6, 5.90312)
 
-[node name="PickableObject" parent="Table2" instance=ExtResource("7_o6xl0")]
+[node name="PickableObject" parent="Scene/Table2" instance=ExtResource("7_o6xl0")]
 transform = Transform3D(-4.37114e-08, 1, 0, 1, 4.37114e-08, 8.74228e-08, 8.74228e-08, 3.82137e-15, -1, -0.304193, 0.6, 0.209688)
 
-[node name="PickableObject2" parent="Table2" instance=ExtResource("7_o6xl0")]
+[node name="PickableObject2" parent="Scene/Table2" instance=ExtResource("7_o6xl0")]
 transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, -1.74846e-07, -1.74846e-07, -7.64274e-15, 1, -0.304193, 0.6, -0.190312)
 
-[node name="Table3" parent="." instance=ExtResource("5_tbgi4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.00419, 0.6, -1.60969)
+[node name="Table3" parent="Scene" instance=ExtResource("5_tbgi4")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 10.0419, 6, -16.0969)
 
-[node name="Mechgun" parent="Table3" instance=ExtResource("8_tipki")]
+[node name="Mechgun" parent="Scene/Table3" instance=ExtResource("8_tipki")]
 transform = Transform3D(1.91069e-15, -4.37114e-08, -1, -1, -4.37114e-08, 0, -4.37114e-08, 1, -4.37114e-08, -0.233896, 0.567431, -0.243282)
 
-[node name="Mechgun2" parent="Table3" instance=ExtResource("8_tipki")]
+[node name="Mechgun2" parent="Scene/Table3" instance=ExtResource("8_tipki")]
 transform = Transform3D(1.91069e-15, -4.37114e-08, -1, 1, 1.31134e-07, -3.82137e-15, 1.31134e-07, -1, 4.37114e-08, -0.233896, 0.567431, 0.256718)
+
+[node name="XROrigin3D" parent="." instance=ExtResource("4_jyhfs")]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.186936, 0.982372, 0, -0.982372, -0.186936, 0, 5.24591, 0)
