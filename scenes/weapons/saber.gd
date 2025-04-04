@@ -1,5 +1,6 @@
-extends Weapon
+extends Node3D
 
+@export var weaponData: Weapon;
 
 func _on_blade_hitbox_body_entered(body: Node3D) -> void:
   # Get vector of the hitbox

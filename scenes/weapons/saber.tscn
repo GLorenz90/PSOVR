@@ -1,7 +1,8 @@
-[gd_scene load_steps=28 format=3 uid="uid://dlc5j2c6i5b4g"]
+[gd_scene load_steps=30 format=3 uid="uid://dlc5j2c6i5b4g"]
 
 [ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_tdnu3"]
 [ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="3_1yafk"]
+[ext_resource type="Script" uid="uid://c82d0wn7rkf50" path="res://scenes/classes/weapon_class.gd" id="3_nhbxs"]
 [ext_resource type="Animation" uid="uid://dqa0h82y3qn1t" path="res://addons/godot-xr-tools/hands/animations/left/Grip 1.res" id="3_tdnu3"]
 [ext_resource type="Script" uid="uid://c6vwhu36sr4fa" path="res://addons/godot-xr-tools/hands/poses/hand_pose_settings.gd" id="5_8b41m"]
 [ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="6_d1k4g"]
@@ -16,6 +17,44 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nu5ax"]
 size = Vector3(0.060791, 0.396851, 0.223633)
+
+[sub_resource type="Resource" id="Resource_bco1y"]
+script = ExtResource("3_nhbxs")
+WEAPON_TYPE = 0
+STAT_USED = 0
+BASE_DAMAGE = 10
+DAMAGE_RANGE = 5
+BEAST_PERCENT = 0.0
+MUTANT_PERCENT = 0.0
+MACHINE_PERCENT = 0.0
+PLANAR_PERCENT = 0.0
+SPECIAL_PERCENT = 0.0
+MAX_UPGRADE = 10
+CURRENT_UPGRADE = 0
+LVL_REQ = 0
+STR_REQ = 0
+DEX_REQ = 0
+MND_REQ = 0
+HP_BONUS = 0
+MP_BONUS = 0
+STR_BONUS = 0
+DEX_BONUS = 0
+MND_BONUS = 0
+DEF_BONUS = 0
+LCK_BONUS = 0
+FIR_DMG_BONUS = 0.0
+LGT_DMG_BONUS = 0.0
+ICE_DMG_BONUS = 0.0
+GND_DMG_BONUS = 0.0
+HLY_DMG_BONUS = 0.0
+DRK_DMG_BONUS = 0.0
+STA_DMG_BONUS = 0.0
+NAME = "Equipment"
+DESCRIPTION = "An item that can be picked up and dropped."
+RARITY = 0
+COST = 100
+ICON = null
+metadata/_custom_type_script = "uid://c82d0wn7rkf50"
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_d1k4g"]
 radius = 0.15
@@ -92,24 +131,25 @@ press_to_hold = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0572525, -0.0135741)
 shape = SubResource("BoxShape3D_nu5ax")
 
-[node name="Blade" type="Node3D" parent="." index="1"]
+[node name="Saber" type="Node3D" parent="." index="1"]
 script = ExtResource("8_e6ru5")
+weaponData = SubResource("Resource_bco1y")
 
-[node name="BladeHitbox" type="Area3D" parent="Blade" index="0"]
+[node name="BladeHitbox" type="Area3D" parent="Saber" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.924, 0)
 collision_layer = 16
 collision_mask = 32
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Blade/BladeHitbox" index="0"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Saber/BladeHitbox" index="0"]
 shape = SubResource("CapsuleShape3D_d1k4g")
 
-[node name="SaberBlade" type="MeshInstance3D" parent="Blade" index="1"]
+[node name="SaberBlade" type="MeshInstance3D" parent="Saber" index="1"]
 transform = Transform3D(-1, -8.74228e-08, -3.82137e-15, 0, -4.37114e-08, 1, -8.74228e-08, 1, 4.37114e-08, 0, 0.2, 0)
 mesh = ExtResource("7_fkrnb")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_8b41m")
 
-[node name="GPUTrail3D" type="GPUParticles3D" parent="Blade" index="2"]
+[node name="GPUTrail3D" type="GPUParticles3D" parent="Saber" index="2"]
 transform = Transform3D(-0.675, 1.05879e-21, 5.90104e-08, -2.04195e-22, 0.675, 7.10543e-15, -5.90104e-08, 7.10543e-15, -0.675, -2.84692e-15, 0.945, 3.2565e-08)
 amount = 100
 lifetime = 100.0
@@ -124,19 +164,19 @@ curve = SubResource("CurveTexture_duqub")
 _defaults_have_been_set = true
 metadata/_custom_type_script = "uid://bv1rae8gyfs1b"
 
-[node name="GrabPointHandLeft" parent="Blade" index="3" instance=ExtResource("3_1yafk")]
+[node name="GrabPointHandLeft" parent="Saber" index="3" instance=ExtResource("3_1yafk")]
 transform = Transform3D(0.982868, 0.184312, -1.55873e-08, -0.0921363, 0.49133, -0.866087, -0.15963, 0.851249, 0.499894, 0.00870912, 0.112816, -0.0276857)
 hand_pose = SubResource("Resource_b5w62")
 
-[node name="GrabPointHandRight" parent="Blade" index="4" instance=ExtResource("6_d1k4g")]
+[node name="GrabPointHandRight" parent="Saber" index="4" instance=ExtResource("6_d1k4g")]
 transform = Transform3D(1, 0, 0, 0, 0.499894, -0.866086, 0, 0.866086, 0.499894, -0.00670511, 0.113641, -0.0253825)
 hand_pose = SubResource("Resource_jl73h")
 
-[node name="SaberHilt" type="MeshInstance3D" parent="Blade" index="5"]
+[node name="SaberHilt" type="MeshInstance3D" parent="Saber" index="5"]
 transform = Transform3D(-1, -8.74228e-08, -3.82137e-15, 0, -4.37114e-08, 1, -8.74228e-08, 1, 4.37114e-08, 0, 0, 0)
 mesh = ExtResource("8_1yafk")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_fkrnb")
 surface_material_override/1 = SubResource("StandardMaterial3D_1yafk")
 
-[connection signal="body_entered" from="Blade/BladeHitbox" to="Blade" method="_on_blade_hitbox_body_entered"]
+[connection signal="body_entered" from="Saber/BladeHitbox" to="Saber" method="_on_blade_hitbox_body_entered"]

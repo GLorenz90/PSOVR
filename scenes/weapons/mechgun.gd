@@ -1,4 +1,6 @@
-extends Weapon
+extends Node3D
+
+@export var weaponData: Weapon;
 
 var triggerHeld := false;
 var canShoot := true;

@@ -1,5 +1,6 @@
-extends Weapon
+extends Node3D
 
+@export var weaponData: Weapon;
 const bulletScene = preload("res://scenes/weapons/bullet.tscn");
 
 func _on_handgun_action_pressed(_pickable: Variant) -> void:
