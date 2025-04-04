@@ -5,9 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://clp72mpe61dwk" path="res://meshes/Mines_door.glb" id="3_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://m84857akrdxl" path="res://scenes/player/xr_origin.tscn" id="4_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://cmbbqsyx1ct51" path="res://scenes/furniture/platform_low_2.tscn" id="5_tbgi4"]
-[ext_resource type="PackedScene" uid="uid://mcboobmkmfao" path="res://scenes/objects/handgun.tscn" id="6_tefeu"]
-[ext_resource type="PackedScene" uid="uid://dlc5j2c6i5b4g" path="res://scenes/objects/saber.tscn" id="7_o6xl0"]
-[ext_resource type="PackedScene" uid="uid://dxkctaxp7kenu" path="res://scenes/objects/mechgun.tscn" id="8_tipki"]
+[ext_resource type="PackedScene" uid="uid://mcboobmkmfao" path="res://scenes/weapons/handgun.tscn" id="6_tefeu"]
+[ext_resource type="PackedScene" uid="uid://dlc5j2c6i5b4g" path="res://scenes/weapons/saber.tscn" id="7_o6xl0"]
+[ext_resource type="PackedScene" uid="uid://dxkctaxp7kenu" path="res://scenes/weapons/mechgun.tscn" id="8_tipki"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tbgi4"]
 size = Vector3(46.1, 1, 93.8)

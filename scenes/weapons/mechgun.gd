@@ -1,8 +1,8 @@
-extends Node3D
+extends Weapon
 
 var triggerHeld := false;
 var canShoot := true;
-const bulletScene = preload("res://scenes/objects/bullet.tscn");
+const bulletScene = preload("res://scenes/weapons/bullet.tscn");
 
 func _process(_delta: float) -> void:
   if canShoot && triggerHeld:

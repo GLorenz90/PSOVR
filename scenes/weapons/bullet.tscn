@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bisbr07in7c4n"]
 
-[ext_resource type="Script" uid="uid://sq8ltx1pdvtc" path="res://bullet.gd" id="1_r481e"]
+[ext_resource type="Script" uid="uid://sq8ltx1pdvtc" path="res://scenes/weapons/bullet.gd" id="1_r481e"]
 [ext_resource type="PackedScene" uid="uid://cxd0mv66wywaq" path="res://meshes/weapons/Gun Bullet.glb" id="2_qge6c"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_a6ixa"]

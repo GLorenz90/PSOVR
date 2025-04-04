@@ -1,6 +1,6 @@
-extends Node3D
+extends Weapon
 
-const bulletScene = preload("res://scenes/objects/bullet.tscn");
+const bulletScene = preload("res://scenes/weapons/bullet.tscn");
 
 func _on_handgun_action_pressed(_pickable: Variant) -> void:
   shootBullet();
