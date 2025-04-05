@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_dvwak"]
 [ext_resource type="PackedScene" uid="uid://bjksc14woeo8r" path="res://meshes/weapons/Handgun.glb" id="2_qg7ok"]
 [ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="3_740y4"]
-[ext_resource type="Script" uid="uid://c82d0wn7rkf50" path="res://scenes/classes/weapon_class.gd" id="3_n73qd"]
+[ext_resource type="Script" uid="uid://c82d0wn7rkf50" path="res://resources/_classes/weapon.gd" id="3_n73qd"]
 [ext_resource type="Animation" uid="uid://ddbo6ioa282en" path="res://addons/godot-xr-tools/hands/animations/left/Pistol.res" id="4_5c16m"]
 [ext_resource type="Script" uid="uid://c6vwhu36sr4fa" path="res://addons/godot-xr-tools/hands/poses/hand_pose_settings.gd" id="5_00kb8"]
 [ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="6_wsts7"]
