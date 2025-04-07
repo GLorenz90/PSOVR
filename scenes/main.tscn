@@ -1,13 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://gb1oo8emlwvd"]
+[gd_scene load_steps=10 format=3 uid="uid://gb1oo8emlwvd"]
 
 [ext_resource type="Script" uid="uid://63n5jiopjhu6" path="res://scenes/main.gd" id="1_cv68k"]
 [ext_resource type="PackedScene" uid="uid://bl5jnocpg2tm4" path="res://meshes/rooms/Mines 01_section_050.glb" id="2_sugp2"]
 [ext_resource type="PackedScene" uid="uid://clp72mpe61dwk" path="res://meshes/Mines_door.glb" id="3_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://m84857akrdxl" path="res://scenes/player/xr_origin.tscn" id="4_jyhfs"]
-[ext_resource type="PackedScene" uid="uid://cmbbqsyx1ct51" path="res://scenes/furniture/platform_low_2.tscn" id="5_tbgi4"]
-[ext_resource type="PackedScene" uid="uid://mcboobmkmfao" path="res://scenes/weapons/handgun.tscn" id="6_tefeu"]
-[ext_resource type="PackedScene" uid="uid://dlc5j2c6i5b4g" path="res://scenes/weapons/saber.tscn" id="7_o6xl0"]
-[ext_resource type="PackedScene" uid="uid://dxkctaxp7kenu" path="res://scenes/weapons/mechgun.tscn" id="8_tipki"]
+[ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="5_tefeu"]
+[ext_resource type="PackedScene" uid="uid://dk8kho4grmo7v" path="res://scenes/ui/quickWeaponMenu.tscn" id="6_o6xl0"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tbgi4"]
 size = Vector3(46.1, 1, 93.8)
@@ -79,34 +77,18 @@ transform = Transform3D(-2.18557e-07, 0, -5, 0, 5, 0, 5, 0, -2.18557e-07, 0, 0, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.8, 0)
 shape = SubResource("BoxShape3D_o6xl0")
 
-[node name="Table" parent="Scene" instance=ExtResource("5_tbgi4")]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 10.0419, 6, -5.09688)
-
-[node name="Handgun" parent="Scene/Table" instance=ExtResource("6_tefeu")]
-transform = Transform3D(4.37114e-08, 8.74228e-08, -1, 1, 4.37114e-08, 4.37114e-08, 4.37114e-08, -1, -8.74228e-08, -0.109282, 0.541456, 0.189686)
-
-[node name="Handgun2" parent="Scene/Table" instance=ExtResource("6_tefeu")]
-transform = Transform3D(4.37114e-08, 8.74228e-08, -1, -1, -1.31134e-07, -4.37114e-08, -1.31134e-07, 1, 8.74228e-08, -0.109282, 0.541456, -0.210314)
-
-[node name="Table2" parent="Scene" instance=ExtResource("5_tbgi4")]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 10.0419, 6, 5.90312)
-
-[node name="PickableObject" parent="Scene/Table2" instance=ExtResource("7_o6xl0")]
-transform = Transform3D(-4.37114e-08, 1, 0, 1, 4.37114e-08, 8.74228e-08, 8.74228e-08, 3.82137e-15, -1, -0.304193, 0.6, 0.209688)
-
-[node name="PickableObject2" parent="Scene/Table2" instance=ExtResource("7_o6xl0")]
-transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, -1.74846e-07, -1.74846e-07, -7.64274e-15, 1, -0.304193, 0.6, -0.190312)
-
-[node name="Table3" parent="Scene" instance=ExtResource("5_tbgi4")]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 10.0419, 6, -16.0969)
-
-[node name="Mechgun" parent="Scene/Table3" instance=ExtResource("8_tipki")]
-transform = Transform3D(1.91069e-15, -4.37114e-08, -1, -1, -4.37114e-08, 0, -4.37114e-08, 1, -4.37114e-08, -0.233896, 0.567431, -0.243282)
-
-[node name="Mechgun2" parent="Scene/Table3" instance=ExtResource("8_tipki")]
-transform = Transform3D(1.91069e-15, -4.37114e-08, -1, 1, 1.31134e-07, -3.82137e-15, 1.31134e-07, -1, 4.37114e-08, -0.233896, 0.567431, 0.256718)
-
 [node name="XROrigin3D" parent="." instance=ExtResource("4_jyhfs")]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.186936, 0.982372, 0, -0.982372, -0.186936, 0, 5.24591, 0)
+
+[node name="QuickWeaponUI" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+
+[node name="Viewport2Din3D" parent="QuickWeaponUI" instance=ExtResource("5_tefeu")]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
+screen_size = Vector2(100, 100)
+scene = ExtResource("6_o6xl0")
+viewport_size = Vector2(272, 272)
+unshaded = true
+scene_properties_keys = PackedStringArray()

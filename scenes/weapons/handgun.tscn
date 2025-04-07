@@ -15,7 +15,7 @@ size = Vector3(0.1, 0.209012, 0.256682)
 
 [sub_resource type="Resource" id="Resource_xc0xi"]
 script = ExtResource("3_n73qd")
-WEAPON_TYPE = 0
+WEAPON_TYPE = 9
 STAT_USED = 1
 BASE_DAMAGE = 10
 DAMAGE_RANGE = 5
@@ -65,6 +65,7 @@ metadata/_custom_type_script = "uid://c6vwhu36sr4fa"
 
 [node name="Handgun" instance=ExtResource("1_dvwak")]
 press_to_hold = false
+release_mode = 1
 
 [node name="CollisionShape3D" parent="." index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0450664, -0.0629389)

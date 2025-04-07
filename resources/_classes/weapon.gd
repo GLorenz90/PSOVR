@@ -2,7 +2,8 @@ extends Equipment
 class_name Weapon
 
 #@export_group("Description")
-@export var WEAPON_TYPE: Enums.WEAPON_TYPES = Enums.WEAPON_TYPES.SWORD;
+@export var WEAPON_TYPE: Enums.WEAPON_TYPES = Enums.WEAPON_TYPES.HANDGUN;
+@export var SCENE: PackedScene = load("res://scenes/weapons/handgun.tscn");
 
 @export_subgroup("Damage")
 @export var STAT_USED: Enums.WEAPON_USAGE_STATS = Enums.WEAPON_USAGE_STATS.STR;

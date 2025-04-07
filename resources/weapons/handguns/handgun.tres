@@ -1,0 +1,43 @@
+[gd_resource type="Resource" script_class="Weapon" load_steps=3 format=3 uid="uid://onrfgstwslgr"]
+
+[ext_resource type="PackedScene" uid="uid://mcboobmkmfao" path="res://scenes/weapons/handgun.tscn" id="1_0a8cv"]
+[ext_resource type="Script" uid="uid://c82d0wn7rkf50" path="res://resources/_classes/weapon.gd" id="1_c8h4i"]
+
+[resource]
+script = ExtResource("1_c8h4i")
+WEAPON_TYPE = 9
+SCENE = ExtResource("1_0a8cv")
+STAT_USED = 1
+BASE_DAMAGE = 10
+DAMAGE_RANGE = 5
+BEAST_PERCENT = 0.0
+MUTANT_PERCENT = 0.0
+MACHINE_PERCENT = 0.0
+PLANAR_PERCENT = 0.0
+SPECIAL_PERCENT = 0.0
+MAX_UPGRADE = 10
+CURRENT_UPGRADE = 0
+LVL_REQ = 0
+STR_REQ = 0
+DEX_REQ = 0
+MND_REQ = 0
+HP_BONUS = 0
+MP_BONUS = 0
+STR_BONUS = 0
+DEX_BONUS = 0
+MND_BONUS = 0
+DEF_BONUS = 0
+LCK_BONUS = 0
+FIR_DMG_BONUS = 0.0
+LGT_DMG_BONUS = 0.0
+ICE_DMG_BONUS = 0.0
+GND_DMG_BONUS = 0.0
+HLY_DMG_BONUS = 0.0
+DRK_DMG_BONUS = 0.0
+STA_DMG_BONUS = 0.0
+NAME = "Debug Handgun"
+DESCRIPTION = "An item that can be picked up and dropped."
+RARITY = 0
+COST = 100
+ICON = "uid://d4gt82rg7wjm1"
+metadata/_custom_type_script = "uid://c82d0wn7rkf50"
