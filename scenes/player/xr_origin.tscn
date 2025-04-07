@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://m84857akrdxl"]
+[gd_scene load_steps=10 format=3 uid="uid://m84857akrdxl"]
 
 [ext_resource type="PackedScene" uid="uid://bq86r4yll8po" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_fullglove_low.tscn" id="1_pdkrn"]
+[ext_resource type="Script" uid="uid://bw0e8tke0bcya" path="res://scenes/player/xr_origin.gd" id="1_uy1kb"]
 [ext_resource type="PackedScene" uid="uid://xqimcf20s2jp" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_fullglove_low.tscn" id="2_43bj4"]
 [ext_resource type="Material" uid="uid://buaoonkiiouvj" path="res://textures/hand_mat.tres" id="2_su7vk"]
 [ext_resource type="PackedScene" uid="uid://bl2nuu3qhlb5k" path="res://addons/godot-xr-tools/functions/movement_direct.tscn" id="3_yxgtc"]
@@ -10,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="7_lexhy"]
 
 [node name="XROrigin3D" type="XROrigin3D"]
+script = ExtResource("1_uy1kb")
 
 [node name="XRCamera3D" type="XRCamera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.72529e-08, 0)
@@ -28,7 +30,6 @@ strafe = true
 grab_distance = 1.0
 
 [node name="FunctionPointer" parent="LeftHand" instance=ExtResource("5_co78m")]
-active_button_action = "ax_button"
 show_laser = 2
 laser_length = 1
 show_target = true
@@ -61,3 +62,8 @@ floor_constant_speed = true
 floor_snap_length = 0.2
 platform_on_leave = 2
 ground_control = 2
+
+[connection signal="button_pressed" from="LeftHand" to="." method="_on_left_hand_button_pressed"]
+[connection signal="button_released" from="LeftHand" to="." method="_on_left_hand_button_released"]
+[connection signal="button_pressed" from="RightHand" to="." method="_on_right_hand_button_pressed"]
+[connection signal="button_released" from="RightHand" to="." method="_on_right_hand_button_released"]
